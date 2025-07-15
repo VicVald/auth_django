@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Site{% endblock title %}</title>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    {% bootstrap_javascript %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    {# Navbar #}
+    <nav class="navbar bg-body-tertiary navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <img src="{% static 'logo.jpeg' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                Site_NAME
+            </a>
+            
+            <div class="d-flex">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> {# Ícone de pessoa/círculo #}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'authentication:login' %}">Dados</a></li> {# Criar tela de update dos dados #}
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            <div>
+            
+            
+        </div>
+    </nav>
+
+    {# Conteúdo principal da página será inserido aqui #}
+    <div class="flex-grow-1">
+        {% block content %}{% endblock content %}
+    </div>
+
+    {# Footer padrão #}
+    <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Site_NAME. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

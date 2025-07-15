@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock title %} {# Sobrescreve o título da página #}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card shadow-lg">
+                    <div class="card-body p-4">
+                        <h1 class="card-title text-center mb-4">Register</h1>
+                        {% if error %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                          {{ error }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endif %}
+
+                        {% if success %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          {{ success }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endif %}
+                        <form action="{% url 'authentication:register' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter your username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <a class="mt-5 mb-3 text-body-secondary" href="{% url 'authentication:login' %}">Já tenho conta</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
