@@ -29,8 +29,8 @@ Um projeto de autenticação robusto e pronto para uso, construído com **Django
 
 ### 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/VicVald/auth_django
+cd auth_django
 ```
 
 ### 2. **Instale dependências com uv**
